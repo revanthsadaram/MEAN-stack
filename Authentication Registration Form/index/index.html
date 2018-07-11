@@ -1,0 +1,941 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+<html>
+	<head>
+		<title>Validation</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.2/angular.min.js">
+		</script>
+		<style>
+		    #name
+		    {
+		       padding:10px;	
+		    }
+			.details
+			{
+				margin:0px 350px 0px 350px;
+				background-color:grey;
+				color:white;
+				padding:0px 0px 0px 10px;
+			}
+			form,div
+			{
+				margin:0px 350px 0px 350px;
+			}
+			.b
+			{
+				
+				padding:50px 0px 0px 50px;
+			}
+			.a
+			{
+				
+				color:red;
+				padding:0px 0px 0px 220px;
+				font-size:12px;
+			}
+			.dob
+			{
+				
+				padding:0px 0px 0px 110px;
+			}
+			.gender
+			{
+				
+				padding:0px 0px 0px 140px;
+			}
+			.check
+			{
+				
+				padding:0px 0px 0px 115px;
+			}
+			.c
+			{
+				
+				padding:0px 0px 0px 205px;
+			}
+			table,td
+			{
+				border: 1px solid black;
+			}
+			.im{
+				padding:0px 0px 0px 90px;
+			}
+
+		</style>
+	</head>
+	<body ng-app="myApp" ng-controller="myCntrl" ng-init="get=0">
+		
+		<div class="im"><img src="image.png" width="1000" height="250"></div>
+		<div class="details">Personal Details</div>
+		<form validate>
+		<form  >
+			<br><br>
+			<span ><b>Name of the Candidate:*</b><span classs="b"><input type="text" ng-model="revanth.name" placeholder="Name of the Candidate(In Block Letters,As per SSC)" size="80"  id="name" required></span></span>
+			<p class="a">As per SSC Marks List</p><br>
+			<span ><b>Date of Birth:*</b><span class="dob"><input type="text" placeholder="dd/mm/yyyy"  ng-model="revanth.dob" required></span></span><br><br>
+			<span><b>Gender:*</b><input type="radio" name="gender" value="Male" ng-model="revanth.gen" ng-required="true">Male<input type="radio" value="Female" name="gender" ng-model="revanth.gen" ng-required="true">Female</span><br><br>
+			<b>Nationality:*</b><span class="check"><input type="checkbox" ng-model="revanth.Nationality">Indian</span>&nbsp&nbsp&nbsp<span>If Others <input type="text" size="40" ng-disabled="revanth.Nationality" ></span>
+			<p class="c">Specify</p><br><br>
+			<b>Aadhar Number:*</b><span><input type="number" size="20" ng-model="revanth.Aadhar"></span>&nbsp&nbsp&nbsp<span>(or)Any other<select ng-model="revanth.Aadhar"><option>Select</option><option>Pan Card</option><option>Ration Card</option><option>Driving License</option><option>Passport</option></select>&nbsp&nbsp<input type="text"></span><br><br>
+			<b>Religion:*</b><span><select ng-model="revanth.Religion"><option>Select</option><option>Hindu</option><option>Christian</option><option>Muslim</option><option>Others</option></select></span><br><br>
+			<b>Community:*</b><select ng-model="revanth.community"><option>Select</option><option>General/OC</option><option>BC</option><option>SC</option><option>ST</option></select><br><br>
+			<b>Mother Tongue:*</b><select ng-model="revanth.tongue"><option selected="selected" value="">Select</option>
+				<option value="01">Assamese</option>
+				<option value="02">Bengali</option>
+				<option value="03">English</option>
+				<option value="04">Gujarati</option>
+				<option value="05">Hindi</option>
+				<option value="06">Kannada</option>
+				<option value="07">Kashmiri</option>
+				<option value="08">Malayalam</option>
+				<option value="09">Marathi</option>
+				<option value="10">Marwari</option>
+				<option value="11">Oriya</option>
+				<option value="12">Punjabi</option>
+				<option value="13">Sanskrit</option>
+				<option value="14">Sindhi</option>
+				<option value="15">Tamil</option>
+				<option value="16">Telugu</option>
+				<option value="17">Urdu</option>
+				<option value="18">Others</option>
+				</select><br><br>
+			<b>Native State:*</b><select ng-model="revanth.state"><option selected="selected" value="">Select</option>
+				<option value="01">Andaman and Nicobar Islands</option>
+				<option value="02">Andhra Pradesh</option>
+				<option value="03">Arunachal Pradesh</option>
+				<option value="04">Assam</option>
+				<option value="05">Bihar</option>
+				<option value="06">Chandigarh</option>
+				<option value="07">Chattisgarh</option>
+				<option value="08">Delhi</option>
+				<option value="09">Goa</option>
+				<option value="10">Gujarat</option>
+				<option value="11">Haryana</option>
+				<option value="12">Himachal Pradesh</option>
+				<option value="13">Jammu and Kashmir</option>
+				<option value="14">Jharkhand</option>
+				<option value="15">Karnataka</option>
+				<option value="16">Kerala</option>
+				<option value="17">Madhya Pradesh</option>
+				<option value="18">Maharashtra</option>
+				<option value="19">Manipur</option>
+				<option value="20">Meghalaya</option>
+				<option value="21">Mizoram</option>
+				<option value="22">Nagaland</option>
+				<option value="23">Orissa</option>
+				<option value="24">Punjab</option>
+				<option value="25">Rajasthan</option>
+				<option value="26">Sikkim</option>
+				<option value="27">Tamil Nadu</option>
+				<option value="28">Telangana</option>
+				<option value="29">Tripura</option>
+				<option value="30">Uttar Pradesh</option>
+				<option value="31">Uttarakhand</option>
+				<option value="32">West Bengal</option>
+				<option value="33">Dadra and Nagar Haveli (UT)</option>
+				<option value="34">Daman and Diu (UT)</option>
+				<option value="35">Lakshadweep (UT)</option>
+				<option value="36">Puducherry (UT)</option>
+				</select><br><br>
+			<b>10+2 Group:*:*</b><select ng-model="revanth.group"><option selected="selected" value="">Select</option>
+				<option value="MPC">MPC</option>
+				<option value="MBIPC">MBIPC</option>
+				<option value="BIPC">BIPC</option>
+				<option value="MEC">MEC</option>
+				<option value="CEC">CEC</option>
+				<option value="HEC">HEC</option>
+				<option value="Other">Other</option>
+				</select><br><br>
+			<b>Blood Group:*</b><select ng-model="revanth.blood"><option selected="selected" value="">Select</option>
+				<option value="A+">A+</option>
+				<option value="A-">A-</option>
+				<option value="AB+">AB+</option>
+				<option value="AB-">AB-</option>
+				<option value="B+">B+</option>
+				<option value="B-">B-</option>
+				<option value="O+">O+</option>
+				<option value="O-">O-</option>
+				<option value="Unknown">Unknown</option>
+				</select><br><br>
+			<b>Parent/Gaurdian Name:*</b><span ><input type="text" ng-model="revanth.parent" value="Parent/Gaurdian's Name"></span>
+			<p class="a">As per SSC Marks List</p><br>
+			<b>Relationship with the candidate:*</b><input type="radio" name="relation" value="father" ng-model="revanth.relation"> Father <input type="radio" name="relation"value="mother" ng-model="revanth.relation"> Mother <input type="radio"name="relation" value="gaurdian" ng-model="revanth.relation"> Guardian<br><br>
+			<b>Occupation:*</b><select ng-model="revanth.Occupation"><option selected="selected" value="">Select</option>
+				<option value="Agriculture">Agriculture</option>
+				<option value="Business">Business</option>
+				<option value="Defence Service">Defence Service</option>
+				<option value="Govt. Service">Govt. Service</option>
+				<option value="Private Service">Private Service</option>
+				<option value="Others">Others</option>
+					</select><br><br>
+			<span><b>Sports:*</b><input type="radio"  ng-model="revanth.sports" value="state" name="sports"> State <input type="radio" value="national" ng-model="revanth.sports" name="sports"> National <input type="radio" value="sport" ng-model="revanth.sports" name="international"> International <input type="radio" ng-model="revanth.sports" value="none" name="sports">None</span><br><br>
+			<span><b>Extra Curricular Activities:*</b><input type="radio" value="ncc" name="culture" ng-model="revanth.extra"> NCC <input type="radio" value="nss" name="culture" ng-model="revanth.extra"> NSS <input type="radio" value="others" name="culture" ng-model="revanth.extra"> Others <input type="radio" value="oth" name="culture" ng-model="revanth.extra"> None</span><br><br>
+			<span><b>Cultural:*</b><input type="radio" name="cul" value="St" ng-model="revanth.cultural"> State <input type="radio" name="cul" value="Na" ng-model="revanth.cultural"> National <input type="radio" name="cul" value="in" ng-model="revanth.cultural"> International <input type="radio" name="cul" value="no" ng-model="revanth.cultural"> None</span><br><br>
+		</form>
+
+		<div class="details">Communication Address (In Block Letters)</div>><br><br>
+		<form>
+			<span><b>Name:*</b><span><input type="text" ng-model="revanth.Name"></span></span><br><br>
+			<span><b>Address Line1:*</b><span><input type="text"  ng-model="revanth.Add" placeholder="Address Line 1" required></span></span><br><br>
+			<span><b>Address Line2:*</b><span><input type="text" ng-model="revanth.Address"placeholder="Address Line 2" required></span></span><br><br>
+			<span><b>Village / town:*</b><span><input type="text" ng-model="revanth.village" placxeholder="Village / Town" required></span></span><br><br>
+			<span><b>District:*</b><span><input type="text"  ng-model="revanth.district" placeholder="District"required></span></span><br><br>
+			<span><b>State:*</b><span><input type="text"  ng-model="revanth.State" placeholder="State" required></span></span><br><br>
+			<span><b>Country:*</b><select ng-model="revanth.country"><option value="">Select Country</option>
+				<option value="Afghanistan">Afghanistan</option>
+				<option value="Albania">Albania</option>
+				<option value="Algeria">Algeria</option>
+				<option value="American Samoa">American Samoa</option>
+				<option value="Andorra">Andorra</option>
+				<option value="Angola">Angola</option>
+				<option value="Anguilla">Anguilla</option>
+				<option value="Antarctica">Antarctica</option>
+				<option value="Antigua And Barbuda">Antigua And Barbuda</option>
+				<option value="Argentina">Argentina</option>
+				<option value="Armenia">Armenia</option>
+				<option value="Aruba">Aruba</option>
+				<option value="Australia">Australia</option>
+				<option value="Austria">Austria</option>
+				<option value="Azerbaijan">Azerbaijan</option>
+				<option value="Bahamas">Bahamas</option>
+				<option value="Bahrain">Bahrain</option>
+				<option value="Bangladesh">Bangladesh</option>
+				<option value="Barbados">Barbados</option>
+				<option value="Belarus">Belarus</option>
+				<option value="Belgium">Belgium</option>
+				<option value="Belize">Belize</option>
+				<option value="Benin">Benin</option>
+				<option value="Bermuda">Bermuda</option>
+				<option value="Bhutan">Bhutan</option>
+				<option value="Bolivia">Bolivia</option>
+				<option value="Bosnia And Herzegowina">Bosnia And Herzegowina</option>
+				<option value="Botswana">Botswana</option>
+				<option value="Bouvet Island">Bouvet Island</option>
+				<option value="Brazil">Brazil</option>
+				<option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+				<option value="Brunei Darussalam">Brunei Darussalam</option>
+				<option value="Bulgaria">Bulgaria</option>
+				<option value="Burkina Faso">Burkina Faso</option>
+				<option value="Burundi">Burundi</option>
+				<option value="Cambodia">Cambodia</option>
+				<option value="Cameroon">Cameroon</option>
+				<option value="Canada">Canada</option>
+				<option value="Cape Verde">Cape Verde</option>
+				<option value="Cayman Islands">Cayman Islands</option>
+				<option value="Central African Republic">Central African Republic</option>
+				<option value="Chad">Chad</option>
+				<option value="Chile">Chile</option>
+				<option value="China">China</option>
+				<option value="CX">Christmas Island</option>
+				<option value="CC">Cocos (Keeling) Islands</option>
+				<option value="CO">Colombia</option>
+				<option value="KM">Comoros</option>
+				<option value="CG">Congo</option>
+				<option value="CK">Cook Islands</option>
+				<option value="CR">Costa Rica</option>
+				<option value="CI">Cote D'Ivoire</option>
+				<option value="HR">Croatia (Local Name: Hrvatska)</option>
+				<option value="CU">Cuba</option>
+				<option value="CY">Cyprus</option>
+				<option value="CZ">Czech Republic</option>
+				<option value="DK">Denmark</option>
+				<option value="DJ">Djibouti</option>
+				<option value="DM">Dominica</option>
+				<option value="DO">Dominican Republic</option>
+				<option value="TP">East Timor</option>
+				<option value="EC">Ecuador</option>
+				<option value="EG">Egypt</option>
+				<option value="SV">El Salvador</option>
+				<option value="GQ">Equatorial Guinea</option>
+				<option value="ER">Eritrea</option>
+				<option value="EE">Estonia</option>
+				<option value="ET">Ethiopia</option>
+				<option value="FK">Falkland Islands (Malvinas)</option>
+				<option value="FO">Faroe Islands</option>
+				<option value="FJ">Fiji</option>
+				<option value="FI">Finland</option>
+				<option value="FR">France</option>
+				<option value="GF">French Guiana</option>
+				<option value="PF">French Polynesia</option>
+				<option value="TF">French Southern Territories</option>
+				<option value="GA">Gabon</option>
+				<option value="GM">Gambia</option>
+				<option value="GE">Georgia</option>
+				<option value="DE">Germany</option>
+				<option value="GH">Ghana</option>
+				<option value="GI">Gibraltar</option>
+				<option value="GR">Greece</option>
+				<option value="GL">Greenland</option>
+				<option value="GD">Grenada</option>
+				<option value="GP">Guadeloupe</option>
+				<option value="GU">Guam</option>
+				<option value="GT">Guatemala</option>
+				<option value="GN">Guinea</option>
+				<option value="GW">Guinea-Bissau</option>
+				<option value="GY">Guyana</option>
+				<option value="HT">Haiti</option>
+				<option value="HM">Heard And Mc Donald Islands</option>
+				<option value="VA">Holy See (Vatican City State)</option>
+				<option value="HN">Honduras</option>
+				<option value="HK">Hong Kong</option>
+				<option value="HU">Hungary</option>
+				<option value="IS">Icel And</option>
+				<option selected="selected" value="IN">India</option>
+				<option value="ID">Indonesia</option>
+				<option value="IR">Iran (Islamic Republic Of)</option>
+				<option value="IQ">Iraq</option>
+				<option value="IE">Ireland</option>
+				<option value="IL">Israel</option>
+				<option value="IT">Italy</option>
+				<option value="JM">Jamaica</option>
+				<option value="JP">Japan</option>
+				<option value="JO">Jordan</option>
+				<option value="KZ">Kazakhstan</option>
+				<option value="KE">Kenya</option>
+				<option value="KI">Kiribati</option>
+				<option value="KP">Korea, Dem People'S Republic</option>
+				<option value="KR">Korea, Republic Of</option>
+				<option value="KW">Kuwait</option>
+				<option value="KG">Kyrgyzstan</option>
+				<option value="LA">Lao People'S Dem Republic</option>
+				<option value="LV">Latvia</option>
+				<option value="LB">Lebanon</option>
+				<option value="LS">Lesotho</option>
+				<option value="LR">Liberia</option>
+				<option value="LY">Libyan Arab Jamahiriya</option>
+				<option value="LI">Liechtenstein</option>
+				<option value="LT">Lithuania</option>
+				<option value="LU">Luxembourg</option>
+				<option value="MO">Macau</option>
+				<option value="MK">Macedonia</option>
+				<option value="MG">Madagascar</option>
+				<option value="MW">Malawi</option>
+				<option value="MY">Malaysia</option>
+				<option value="MV">Maldives</option>
+				<option value="ML">Mali</option>
+				<option value="MT">Malta</option>
+				<option value="MH">Marshall Islands</option>
+				<option value="MQ">Martinique</option>
+				<option value="MR">Mauritania</option>
+				<option value="MU">Mauritius</option>
+				<option value="YT">Mayotte</option>
+				<option value="MX">Mexico</option>
+				<option value="FM">Micronesia, Federated States</option>
+				<option value="MD">Moldova, Republic Of</option>
+				<option value="MC">Monaco</option>
+				<option value="MN">Mongolia</option>
+				<option value="MS">Montserrat</option>
+				<option value="MA">Morocco</option>
+				<option value="MZ">Mozambique</option>
+				<option value="MM">Myanmar</option>
+				<option value="NA">Namibia</option>
+				<option value="NR">Nauru</option>
+				<option value="NP">Nepal</option>
+				<option value="NL">Netherlands</option>
+				<option value="AN">Netherlands Ant Illes</option>
+				<option value="NC">New Caledonia</option>
+				<option value="NZ">New Zealand</option>
+				<option value="NI">Nicaragua</option>
+				<option value="NE">Niger</option>
+				<option value="NG">Nigeria</option>
+				<option value="NU">Niue</option>
+				<option value="NF">Norfolk Island</option>
+				<option value="MP">Northern Mariana Islands</option>
+				<option value="NO">Norway</option>
+				<option value="OM">Oman</option>
+				<option value="PK">Pakistan</option>
+				<option value="PW">Palau</option>
+				<option value="PA">Panama</option>
+				<option value="PG">Papua New Guinea</option>
+				<option value="PY">Paraguay</option>
+				<option value="PE">Peru</option>
+				<option value="PH">Philippines</option>
+				<option value="PN">Pitcairn</option>
+				<option value="PL">Poland</option>
+				<option value="PT">Portugal</option>
+				<option value="PR">Puerto Rico</option>
+				<option value="QA">Qatar</option>
+				<option value="RE">Reunion</option>
+				<option value="RO">Romania</option>
+				<option value="RU">Russian Federation</option>
+				<option value="RW">Rwanda</option>
+				<option value="KN">Saint K Itts And Nevis</option>
+				<option value="LC">Saint Lucia</option>
+				<option value="VC">Saint Vincent, The Grenadines</option>
+				<option value="WS">Samoa</option>
+				<option value="SM">San Marino</option>
+				<option value="ST">Sao Tome And Principe</option>
+				<option value="SA">Saudi Arabia</option>
+				<option value="SN">Senegal</option>
+				<option value="SC">Seychelles</option>
+				<option value="SL">Sierra Leone</option>
+				<option value="SG">Singapore</option>
+				<option value="SK">Slovakia (Slovak Republic)</option>
+				<option value="SI">Slovenia</option>
+				<option value="SB">Solomon Islands</option>
+				<option value="SO">Somalia</option>
+				<option value="ZA">South Africa</option>
+				<option value="GS">South Georgia , S Sandwich Is.</option>
+				<option value="ES">Spain</option>
+				<option value="LK">Sri Lanka</option>
+				<option value="SH">St. Helena</option>
+				<option value="PM">St. Pierre And Miquelon</option>
+				<option value="SD">Sudan</option>
+				<option value="SR">Suriname</option>
+				<option value="SJ">Svalbard, Jan Mayen Islands</option>
+				<option value="SZ">Sw Aziland</option>
+				<option value="SE">Sweden</option>
+				<option value="CH">Switzerland</option>
+				<option value="SY">Syrian Arab Republic</option>
+				<option value="TW">Taiwan</option>
+				<option value="TJ">Tajikistan</option>
+				<option value="TZ">Tanzania, United Republic Of</option>
+				<option value="TH">Thailand</option>
+				<option value="TG">Togo</option>
+				<option value="TK">Tokelau</option>
+				<option value="TO">Tonga</option>
+				<option value="TT">Trinidad And Tobago</option>
+				<option value="TN">Tunisia</option>
+				<option value="TR">Turkey</option>
+				<option value="TM">Turkmenistan</option>
+				<option value="TC">Turks And Caicos Islands</option>
+				<option value="TV">Tuvalu</option>
+				<option value="UG">Uganda</option>
+				<option value="UA">Ukraine</option>
+				<option value="AE">United Arab Emirates</option>
+				<option value="GB">United Kingdom</option>
+				<option value="US">United States</option>
+				<option value="UM">United States Minor Is.</option>
+				<option value="UY">Uruguay</option>
+				<option value="UZ">Uzbekistan</option>
+				<option value="VU">Vanuatu</option>
+				<option value="VE">Venezuela</option>
+				<option value="VN">Viet Nam</option>
+				<option value="VG">Virgin Islands (British)</option>
+				<option value="VI">Virgin Islands (U.S.)</option>
+				<option value="WF">Wallis And Futuna Islands</option>
+				<option value="EH">Western Sahara</option>
+				<option value="YE">Yemen</option>
+				<option value="YU">Yugoslavia</option>
+				<option value="ZR">Zaire</option>
+				<option value="ZM">Zambia</option>
+				<option value="ZW">Zimbabwe</option>
+		
+				</select></span><br><br>
+			<span><b>Pin/Zipcode:*</b><span><input type="text" ng-model="revanth.pin" placeholder="Pin/Zipcode" required></span></span><br><br>
+			<span><b>Phone Number:</b><span><input type="Number" ng-model="revanth.phone" placeholder="Eg:0866-2123456" required></span></span><br><br>
+			<span>   <b> Enter MobileNumber: </b>
+					<input type="text" ng-model="revanth.mobileno" ng-keyup="$event.keyCode==13 ?Send():null"> 
+					<br> 
+					<p ng-show="get==1"> 
+					<br><b>Enter otp: </b>
+					<input type="text" ng-model="onetime"></p> 
+					<span ng-if='get==1'>
+					<input type="button" value="Verify" ng-click="Verify()"> 
+					</span><p>{{status}}</p> </span>
+			<br><br>
+			<span><b>E-mail Address:*</b><span><input type="text" ng-model="revanth.email" placeholder="E-mail Address" required></span></span><br><br>
+		</form>
+		<div class="details">Course options</div><br><br>
+		<form>
+			<b>Program applying for:*</b><select ng-model="revanth.apply"><option selected="selected" value="">Select</option>
+				<option value="B.Arch">B.Arch</option>
+				<option value="B.Sc(VC)">B.Sc(VC)</option>
+				<option value="BCA-Cloud Computing">BCA-Cloud Computing</option>
+				<option value="BFA">BFA</option>
+				<option value="B.Com(Hons)">B.Com(Hons)</option>
+				<option value="BBA">BBA</option>
+				<option value="BBA-MBA">BBA-MBA</option>
+				<option value="BA-IAS">BA-IAS</option>
+				<option value="B.Pharm">B.Pharm</option>
+				<option value="BBA-LL.B">BBA-LL.B</option>
+				<option value="LL.B">LL.B</option>
+				<option value="M.Tech">M.Tech</option>
+				<option value="MBA">MBA</option>
+				<option value="LL.M">LL.M</option>
+				<option value="MA-English">MA-English</option>
+				<option value="M.Sc">M.Sc</option>
+		</select><br><br>
+			<b>1st Choice:*</b><select ng-model="revanth.fstchoice"><option selected="selected" value="">Select</option>
+				<option value="10">Bio-Technology (BT)</option>
+				<option value="11">Civil Engineering (CE)</option>
+				<option value="12">Computer Science and Engineering (CSE)</option>
+				<option value="13">Electronics and Communication Engineering (ECE)</option>
+				<option value="14">Electronics and Computer Engineering (ECSE)</option>
+				<option value="15">Electrical and Electronics Engineering (EEE) </option>
+				<option value="16">Mechanical Engineering (ME) </option>
+				<option value="17">Petroleum Engineering (PE) </option>
+		</select><br><br>
+			<b>2nd Choice:*</b><select ng-model="revanth.sndchoice"><option selected="selected" value="">Select</option>
+				<option value="10">Bio-Technology (BT)</option>
+				<option value="11">Civil Engineering (CE)</option>
+				<option value="12">Computer Science and Engineering (CSE)</option>
+				<option value="13">Electronics and Communication Engineering (ECE)</option>
+				<option value="14">Electronics and Computer Engineering (ECSE)</option>
+				<option value="15">Electrical and Electronics Engineering (EEE) </option>
+				<option value="16">Mechanical Engineering (ME) </option>
+				<option value="17">Petroleum Engineering (PE) </option>
+		</select><br><br>
+			<b>3rd Choice:*</b><select ng-model="revanth.trdchoice"><option selected="selected" value="">Select</option>
+				<option value="10">Bio-Technology (BT)</option>
+				<option value="11">Civil Engineering (CE)</option>
+				<option value="12">Computer Science and Engineering (CSE)</option>
+				<option value="13">Electronics and Communication Engineering (ECE)</option>
+				<option value="14">Electronics and Computer Engineering (ECSE)</option>
+				<option value="15">Electrical and Electronics Engineering (EEE) </option>
+				<option value="16">Mechanical Engineering (ME) </option>
+				<option value="17">Petroleum Engineering (PE) </option>
+		</select><br><br>
+			<b>Test City (Written Test):*</b><select ng-model="revanth.test"><option selected="selected" value="">Select</option>
+		</select><br><br>
+			<b>Test City (On Line):*</b><select ng-model="revanth.online"><option selected="selected" value="">Select</option>
+			</select>
+			<p>If sufficient number of students have not opted for any of the given city,the KL Deemed to be University has the right to change the test city opted by the student to the nearest test city</p><br><br>
+			<b>Preferred campus to Join:*</b><select ng-model="revanth.campus"><option selected="selected" value="">Select</option>
+		<option value="HYDERABAD">HYDERABAD</option>
+		<option value="VIJAYAWADA">VIJAYAWADA</option>
+			</select><br><br>
+			<b>Hostel Required:*</b><input type="radio" name="hostel" value="yes" ng-model="revanth.hostel"> Yes <input type="radio" name="hostel" value="no" ng-model="revanth.hostel"> No<br><br>
+		</form>
+		<div class="details">Qualifying Exam Details</div>
+		<form>
+			<b>Status:*</b><input type="radio" name="Satus" value="pass" ng-model="revanth.status"> Passed <input type="radio" name="status" value="appear" ng-model="revanth.status"> Appearing<br><br>
+			<b>Quailifying Exam Passed/Appearing</b><input type="text" ng-model="revanth.exam"><br><br>
+			<b>Reg No. / Roll Number(If Appearing enter "0")</b><input type="text" ng-model="revanth.roll"><br><br>
+			<b>Name and Address of the School/College from where passed/appearing</b><input type="text" ng-model="revanth.appearing"><br><br>
+			<b>Month and Year of Passing/ Appearing</b><input type="text" ng-model="revanth.passing" placeholder="Eg:Apr-2018"><br><br>
+		</form>
+		<div class="details">Academic Record</div>><br><br>
+		<form>
+			<p>Agg. Marks(%): Year of Passing:</p>
+			<b>(a) Class X:*</b><input type="text" ng-model="revanth.X" required>&nbsp<input type="text" ng-model="revanth.Y" required>
+			<p>Agg. Marks(%): Year of Passing:</p>
+			<b>(b) Class XII:*</b><input type="text" ng-model="revanth.XII" required>&nbsp<input type="text" ng-model="revanth.Z" required><br><br>
+			<b>(c) Under Graduation:</b><select ng-model="revanth.UG"><option value="">Qual Code</option>
+				<option value="01">BA</option>
+				<option value="02">BA (Comp)</option>
+				<option value="03">BA (Hons)</option>
+				<option value="04">B.Com</option>
+				<option value="05">B.Com (Comp)</option>
+				<option value="06">B.Com (Hons)</option>
+				<option value="07">B.Sc</option>
+				<option value="08">B.Sc (Comp)</option>
+				<option value="09">BVSc</option>
+				<option value="10">B.Ed</option>
+				<option value="11">B.Sc (Hons)</option>
+				<option value="12">B.Sc (Ag.)</option>
+				<option value="13">BE/B.Tech</option>
+				<option value="14">BCA</option>
+				<option value="15">BBA/BBM/BBS</option>
+				<option value="16">BHM</option>
+				<option value="17">B.Pharm</option>
+				<option value="18">BMS</option>
+				<option value="19">MBBS</option>
+				<option value="20">BLSc</option>
+				<option value="21">BL/LLB/BGL</option>
+				<option value="22">BIT</option>
+				<option value="23">BIS</option>
+				<option value="24">BIM</option>
+				<option value="25">BFA</option>
+				<option value="26">BDS</option>
+				<option value="27">BCS</option>
+				<option value="28">B.Arch</option>
+				<option value="29">AMIE</option>
+				<option value="30">BJ</option>
+				<option value="31">Others</option>
+		</select>&nbsp<select ng-model="revanth.mode"><option value="">Mode of Study</option>
+			<option value="Regular">Regular</option>
+			<option value="Part-Time">Part-Time</option>
+			<option value="Distance Mode">Distance Mode</option>
+	</select>
+			<p><select ng-model="revanth.course"><option value="">Course Duration</option>
+				<option value="3 Years">3 Years</option>
+				<option value="4 Years">4 Years</option>
+				<option value=">4 Years">&gt;4 Years</option>
+		
+		</select>&nbsp<select ng-model="revanth.duration"><option value="">Status</option>
+			<option value="Completed">Completed</option>
+			<option value="Final Year">Final Year</option></select></p><br><br>
+			<p>If Completed: If Studying:</p>
+			<b>Agg. Marks(%),</b><input type="text" ng-model="revanth.Agg" required>&nbsp<input type="text" required><br><br>
+			<b>Year of Passing:</b><input type="text" ng-model="revanth.yop"><br><br>
+			<b>(d) Post Graduation:</b><select ng-model="revanth.pg"><option value="">Qual Code</option>
+				<option value="01">MA</option>
+				<option value="02">MBA</option>
+				<option value="03">MAPM (Hons)</option>
+				<option value="04">M.Com</option>
+				<option value="05">MFA</option>
+				<option value="06">MSc</option>
+				<option value="07">M.Sc (Comp)</option>
+				<option value="08">MVSc</option>
+				<option value="09">M.Ed</option>
+				<option value="10">MHM</option>
+				<option value="11">M.F.Sc</option>
+				<option value="12">M.Sc (Ag.)</option>
+				<option value="13">ME/M.Tech</option>
+				<option value="14">MCA</option>
+				<option value="15">MHM</option>
+				<option value="16">M.Pharm</option>
+				<option value="17">M.Phil</option>
+				<option value="18">MD/MS</option>
+				<option value="19">MLSc</option>
+				<option value="20">MHRM</option>
+				<option value="21">ML/LLM</option>
+				<option value="22">MIT</option>
+				<option value="23">MIB</option>
+				<option value="24">MIM</option>
+				<option value="25">MDP</option>
+				<option value="26">MCS</option>
+				<option value="27">M.Arch</option>
+				<option value="28">MPIB</option>
+				<option value="29">MSPT</option>
+				<option value="30">Others</option>
+		
+		</select>&nbsp<select ng-model="revanth.mos"><option value="">Mode of Study</option>
+			<option value="Regular">Regular</option>
+			<option value="Part-Time">Part-Time</option>
+			<option value="Distance Mode">Distance Mode</option>
+	
+	</select>
+			<p><select ng-model="revanth.CD"><option value="">Course Duration</option>
+				<option value="2 Years">2 Years</option>
+				<option value="3 Years">3 Years</option>
+				<option value=">3 Years">&gt;3 Years</option>
+		</select></p><br><br>
+			<p>If Completed: If Studying:</p>
+			<b>Agg. Marks(%),</b><input type="text" ng-model="revanth.AggMarks" required>&nbsp<input type="text" required><br><br>
+			<b>(e) XII Board:*</b><select ng-model="revanth.SB"><option selected="selected" value="">Select Board </option>
+				<option value="CBSE">CBSE</option>
+				<option value="ICSE">ICSE</option>
+				<option value="State Board">State Board</option>
+				<option value="Others">Others</option>
+				<option value="Tech EDN">Tech EDN</option>
+		</select><br><br>
+			<b>Medium of study:*</b><input name="med" value="MOS" ng-model="revanth.of" type="radio"> English <input name="med" value="Othe" ng-model="revanth.of" type="radio"> Others<br><br>
+			<b>(f) Entrance Examination Appeared:*</b><select ng-model="revanth.EE"><option selected="selected" value="">Select One</option>
+				<option value="JEE-Main">JEE-Main</option>
+				<option value="JEE-Advanced">JEE-Advanced</option>
+				<option value="JEE-Paper2">JEE-Paper2</option>
+				<option value="EAMCET">EAMCET</option>
+				<option value="NEET">NEET</option>
+				<option value="GATE">GATE</option>
+				<option value="PGECET">PGECET</option>
+				<option value="ICET">ICET</option>
+				<option value="CAT">CAT</option>
+				<option value="MAT">MAT</option>
+				<option value="GMAT">GMAT</option>
+				<option value="XAT">XAT</option>
+				<option value="NATA">NATA</option>
+				<option value="NET">NET</option>
+				<option value="APSET">APSET</option>
+				<option value="OTHERS">OTHERS</option>
+				<option value="NONE">NONE</option>
+		</select>&nbsp<input type="text" ng-model="revanth.EF" placeholder="Rank"><br><br>
+		</form>
+		<div class="details">Annual Income information</div><br><br>
+		<form>
+			<b>Annual Income of Parent/Guardian:*</b><select ng-model="revanth.PG"><option selected="selected" value="">Select</option>
+				<option value="Below 1 lac">Below 1 lac</option>
+				<option value="1 to 3 lac">1 to 3 lac</option>
+				<option value="3 to 5 lac">3 to 5 lac</option>
+				<option value="Above 5 lac">Above 5 lac</option>
+		
+		</select>
+		</form>
+		<form>
+			<b>Upload Digital Photograph:*</b><input type="file" ng-model="revanth.img" multiple="false" name="image"/>
+			<p>Digital Photograph should be in JPG format and lessthan 100KB.</p>
+		</form>
+		<div class="details">Declaration</div>><br><br>
+		<form class="terms">
+			<input type="checkbox" ng-model="revanth.check" name="tick" required>I hereby declare that the particulars furnished above are true to the best of my knowledge and belief. I have gone through the instructions and have become fully conversant with the eligibility criteria to be satisfied for admission.I understand that the decision of the KL Deemed to be University is final with regard to selection for admission. If selected for admission, I promise to abide by the rules and regulations of the KL Deemed to be University as existing and as would be amended from time to time. The KL Deemed to be University shall have the right to expel me from the KL Deemed to be University at any time after admission, provided it is satisfied that I was admitted on false particulars furnished by me or my antecedents proving that my continuance in the KL Deemed to be University is not desirable. Fees paid once will not be claimed back under any circumstances. I understand that the decision of the KL Deemed to be University is final with regard to the test city. I agree that all disputes are subject to the jurisdiction of the courts at Vijayawada only. I also declare that I was never convicted for any offence and there are no criminal or civil proceedings pending against me.
+		</form>
+	</form>
+		<div class="submit"><center><input type="submit" ng-show="revanth.check" ng-click="mail()">&nbsp&nbsp&nbsp&nbsp<input type="button" ng-show="revanth.check" ng-click="explore()" value="Retrieve"></center></div>
+		<p ng-if="get==0">{{status}}</p>
+		<div ng-if="get==1">
+			<table ng-repeat="user in users">
+				<tr>
+					<td>Name Of the Candidate</td>
+					<td>{{user.name}}</td>
+				</tr>
+				<tr>
+					<td>Date Of Birth</td>
+					<td>{{user.dob}}</td>
+				</tr>
+				<tr>
+					<td>Gender</td>
+					<td>Male</td>
+				</tr>
+				<tr>
+					<td>Nationality</td>
+					<td>{{user.Nationality}}</td>
+				</tr>
+				<tr>
+					<td>Aadhar Number</td>
+					<td>{{user.Aadhar}}</td>
+				</tr>
+				<tr>
+					<td>Religion</td>
+					<td>{{user.Religion}}</td>
+				</tr>
+				<tr>
+					<td>Community</td>
+					<td>{{user.community}}</td>
+				</tr>
+				<tr>
+					<td>Mother Tongue</td>
+					<td>{{user.tongue}}</td>
+				</tr>
+				<tr>
+					<td>Native State</td>
+					<td>{{user.state}}</td>
+				</tr>
+				<tr>
+					<td>10+2 Group</td>
+					<td>{{user.group}}</td>
+				</tr>
+				<tr>
+					<td>Blood Group</td>
+					<td>{{user.blood}}</td>
+				</tr>
+				<tr>
+					<td>Parent/Gaurdian Name</td>
+					<td>{{user.parent}}</td>
+				</tr>
+				<tr>
+					<td>Relationship with the candidate</td>
+					<td>{{user.relation}}</td>
+				</tr>
+				<tr>
+					<td>Occupation</td>
+					<td>{{user.Occupation}}</td>
+				</tr>
+				<tr>
+					<td>Sports</td>
+					<td>{{user.sports}}</td>
+				</tr>
+				<tr>
+					<td>Extra Curricular Activites</td>
+					<td>{{user.extra}}</td>
+				</tr>
+				<tr>
+					<td>Cultural</td>
+					<td>{{user.cultural}}</td>
+				</tr>
+				<tr>
+					<td>Name</td>
+					<td>{{user.Name}}</td>
+				</tr>
+				<tr>
+					<td>Address Line 1</td>
+					<td>{{user.Add}}</td>
+				</tr>
+				<tr>
+					<td>Address Line 2</td>
+					<td>{{user.Address}}</td>
+				</tr>
+				<tr>
+					<td>Village / Town</td>
+					<td>{{user.village}}</td>
+				</tr>
+				<tr>
+					<td>District</td>
+					<td>{{user.district}}</td>
+				</tr>
+				<tr>
+					<td>State</td>
+					<td>{{user.State}}</td>
+				</tr>
+				<tr>
+					<td>Country</td>
+					<td>{{user.country}}</td>
+				</tr>
+				<tr>
+					<td>Pin/Zipcode</td>
+					<td>{{user.pin}}</td>
+				</tr>
+				<tr>
+					<td>Phone Number</td>
+					<td>{{user.phone}}</td>
+				</tr>
+				<tr>
+					<td>Mobile Number</td>
+					<td>{{user.mobile}}</td>
+				</tr>
+				<tr>
+					<td>E-mail Address</td>
+					<td>{{user.email}}</td>
+				</tr>
+				<tr>
+					<td>Program applying for</td>
+					<td>{{user.apply}}</td>
+				</tr>
+				<tr>
+						<td>1st Choice</td>
+						<td>{{user.fstchoice}}</td>
+					</tr>
+					<tr>
+						<td>2nd Choice</td>
+						<td>{{user.sndchoice}}</td>
+					</tr>
+					<tr>
+						<td>3rd Choice</td>
+						<td>{{user.trdchoice}}</td>
+					</tr>
+					<tr>
+						<td>Test City (Written Test)</td>
+						<td>{{user.test}}</td>
+					</tr>
+					<tr>
+						<td>Test City (ON LINE)</td>
+						<td>{{user.online}}</td>
+					</tr>
+					<tr>
+						<td>Preferred Campus to Join</td>
+						<td>{{user.campus}}</td>
+					</tr>
+					<tr>
+						<td>Hostel Required</td>
+						<td>{{user.hostel}}</td>
+					</tr>
+					<tr>
+						<td>Status</td>
+						<td>{{user.status}}</td>
+					</tr>
+					<tr>
+						<td>Qualifying Exam Passed/Appearing</td>
+						<td>{{user.exam}}</td>
+					</tr>
+					<tr>
+						<td>Reg No. / Roll Number</td>
+						<td>{{user.roll}}</td>
+					</tr>
+					<tr>
+						<td>Name and Address of the School/College from where passed/appearing</td>
+						<td>{{user.appearing}}</td>
+					</tr>
+					<tr>
+						<td>Month and Year of Passing/ Appearing</td>
+						<td>{{user.passing}}</td>
+					</tr>
+					<tr>
+						<td>(a) Class X</td>
+						<td>{{user.X}}</td>
+					</tr>
+					<tr>
+						<td>(b) Class XII</td>
+						<td>{{user.XII}}</td>
+						
+					</tr>
+					<tr>
+						<td>(c) Under Graduation</td>
+					<tr>
+						<td>Agg. Marks(%)</td>
+						<td>{{user.Agg}}</td>
+					</tr>
+					<tr>
+						<td>Year Of Passing</td>
+						<td>{{user.yop}}</td>
+					</tr>
+					<tr>
+						<td>(d) Post Graduation</td>
+					</tr>
+					<tr>
+						<td>Agg. Marks(%)</td>
+						<td>{{user.AggMarks}}</td>
+					</tr>
+					<tr>
+						<td>(e) XII Board:</td>
+						<td>{{user.SB}}</td>
+					</tr>
+					<tr>
+						<td>Medium of study</td>
+						<td>{{user.of}}</td>
+					</tr>
+					<tr>
+						<td>(f) Entrance Examination Appeared</td>
+						<td>{{user.EE}}</td>
+						<td>{{user.EF}}</td>
+					</tr>
+					<tr>
+						<td>Annual Income of Parent/Guardian</td>
+						<td>{{user.PG}}</td>
+					</tr>
+			</table>		
+		</div>
+		<script>
+		var app=angular.module("myApp",[])
+		app.controller("myCntrl",function($scope,$http)
+	{
+		data={}
+		$scope.Send=function() 
+   { 
+     console.log("submitting") 
+     data= {mobileno:$scope.revanth.mobileno}  
+     $http.post('/send',data).then(function(status) 
+     { 
+          if(status.data=="success") 
+          { 
+          $scope.get=1; 
+          $scope.status=""; 
+          } 
+          else 
+          $scope.status="Invalid mobile number"; 
+     }); 
+    } 
+   $scope.Verify=function() 
+   { 
+     console.log("retrieving") 
+     data={otp:$scope.onetime} 
+     $http.post('/verify',data).then(function(details) 
+     { 
+          if(details.data=="success") 
+          $scope.status="OTP verified successfully"; 
+          else 
+          $scope.status="OTP failed"; 
+     }); 
+    } 
+		$scope.mail=function()
+		{
+			console.log("sending")
+			data={email:$scope.email}
+			$http.post('/maidata',data).then(function(status)
+		{
+			$scope.status=status.data;
+			console.log(status);
+		});
+			$http.get('getdata')
+		}
+
+			//$scope.g="";
+
+			data={};
+			$scope.mail=function()
+			{
+				console.log("submitting")
+				data= $scope.revanth
+				$http.post('/savedata',data).then(function(status)
+				{
+					$scope.status=status.data;
+					$scope.name="";
+					$scope.dob="";
+					$scope.any="";
+					$scope.gen="";
+					$scope.get=0;
+				});
+			}
+			$scope.explore=function()
+			{
+				console.log("retrieving")
+				$http.get('/getdata').then(function(details)
+				{
+					$scope.users=details.data;
+					$scope.get=1;
+				});
+			}
+		});
+	</script>
+	</body>
+	
+</html>

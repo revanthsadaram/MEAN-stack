@@ -12,7 +12,7 @@ x=mail.createTransport({
   }
 });
 SendOtp = require('sendotp')
-sendOtp = new SendOtp('222701AmTYKyih0fVN5b329ce1');
+sendOtp = new SendOtp('Unique code given by the Authentication Provider');
 var bodyParser=require('body-parser');
 app.use(bodyParser.json());
 mongo=require('mongodb').MongoClient
